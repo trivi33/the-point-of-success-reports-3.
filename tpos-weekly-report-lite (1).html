@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Point of Success — Weekly Report Lite</title>
+<style>
+:root{--navy:#111d38;--navy2:#1b2b4d;--gold:#c8a65e;--ink:#202a3c;--muted:#687386;--line:#e2e6ed;--bg:#f4f5f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Arial,Helvetica,sans-serif}
+header{background:linear-gradient(115deg,var(--navy),var(--navy2));color:white;padding:24px max(20px,calc((100% - 900px)/2));border-bottom:3px solid var(--gold)}
+.brand{font:20px Georgia,serif;letter-spacing:.1em}.tag{color:#dce2ed;font-size:12px;margin-top:5px}
+main{max-width:900px;margin:26px auto;padding:0 16px 45px}.intro{margin:0 0 18px}.intro h1{font:28px Georgia,serif;color:var(--navy);margin:0 0 5px}.intro p{margin:0;color:var(--muted);font-size:13px}
+form,.preview{background:white;border:1px solid var(--line);border-radius:15px;padding:22px;box-shadow:0 5px 20px #16213a0a}
+.section-title{font:18px Georgia,serif;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:8px;margin:22px 0 14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{min-width:0}.wide{grid-column:1/-1}
+label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}input,select,textarea{width:100%;font:14px Arial;padding:11px 12px;border:1px solid #d7dce5;border-radius:8px;background:white;color:var(--ink)}
+textarea{min-height:88px;resize:vertical}.hint{font-size:11px;color:var(--muted);margin-top:4px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}button{border:0;border-radius:9px;padding:12px 17px;font-weight:700;cursor:pointer}
+.primary{background:var(--navy);color:white}.secondary{background:#eceff4;color:var(--navy)}.gold{background:var(--gold);color:#182039}
+.notice{font-size:12px;color:#655126;background:#f8f2e6;border-radius:8px;padding:11px 13px;margin-top:16px}
+#preview{display:none;margin-top:18px}.preview h2{font:23px Georgia,serif;color:var(--navy);margin:0 0 6px}.preview .meta{color:var(--muted);font-size:12px}.preview h3{font-size:13px;color:var(--navy);margin:16px 0 3px}.preview p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}
+footer{text-align:center;color:#8b93a1;font-size:11px;padding:24px}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}form,.preview{padding:16px}.intro h1{font-size:24px}}
+@media print{
+ body{background:white}.no-print,header,footer,.intro{display:none!important}main{max-width:none;margin:0;padding:0}#formPanel{display:none!important}#preview{display:block!important;margin:0;border:0;box-shadow:none;padding:0}
+ .preview{border:0;padding:0}.preview h2{font-size:24px}.preview h3{break-after:avoid}.preview p{font-size:11pt}
+ @page{size:A4;margin:17mm}
+}
+</style></head>
+<body>
+<header><div class="brand">THE POINT OF SUCCESS</div><div class="tag">WEEKLY REPORT · INTERNAL TEAM FORM</div></header>
+<main>
+<div class="intro no-print"><h1>Еженедельный отчёт</h1><p>Заполните форму — сайт соберёт ответы в аккуратный документ, готовый к сохранению в PDF.</p></div>
+<section id="formPanel" class="no-print">
+<form id="reportForm">
+<div class="section-title">01. Информация о сотруднике</div>
+<div class="grid">
+<div class="field"><label for="name">ФИО *</label><input id="name" name="name" required placeholder="Имя и фамилия"></div>
+<div class="field"><label for="position">Должность *</label><input id="position" name="position" required placeholder="Ваша должность"></div>
+<div class="field"><label for="department">Отдел *</label><select id="department" name="department" required><option value="">Выберите отдел</option><option>Маркетинг / SMM</option><option>Преподаватели</option><option>Продажи / менеджеры</option><option>Разработка / IT</option><option>Методисты</option><option>Финансы / бухгалтерия</option><option>HR / подбор персонала</option><option>Клиентская поддержка</option><option>Администрация / управление</option></select></div>
+<div class="field"><label for="manager">Руководитель</label><input id="manager" name="manager" placeholder="ФИО руководителя"></div>
+<div class="field"><label for="start">Начало отчётной недели *</label><input id="start" name="start" type="date" required></div>
+<div class="field"><label for="end">Конец отчётной недели *</label><input id="end" name="end" type="date" required></div>
+</div>
+<div class="section-title">02. Результаты недели</div>
+<div class="grid">
+<div class="field wide"><label for="summary">Главный итог недели</label><textarea id="summary" name="summary" placeholder="Ключевые результаты и достижения"></textarea></div>
+<div class="field"><label for="done">Выполненные задачи</label><textarea id="done" name="done" placeholder="Что удалось завершить?"></textarea></div>
+<div class="field"><label for="pending">Незавершённые задачи</label><textarea id="pending" name="pending" placeholder="Что осталось и почему?"></textarea></div>
+<div class="field wide"><label for="kpi">KPI: план и факт</label><textarea id="kpi" name="kpi" placeholder="Каждый показатель с новой строки: название — план — факт — единица измерения. Укажите, если KPI ожидает утверждения."></textarea></div>
+</div>
+<div class="section-title">03. Анализ и обратная связь</div>
+<div class="grid">
+<div class="field"><label for="challenges">Трудности и риски</label><textarea id="challenges" name="challenges"></textarea></div>
+<div class="field"><label for="help">Какая помощь нужна от руководителя?</label><textarea id="help" name="help"></textarea></div>
+<div class="field"><label for="ideas">Идеи и предложения</label><textarea id="ideas" name="ideas"></textarea></div>
+<div class="field"><label for="next">План на следующую неделю</label><textarea id="next" name="next"></textarea></div>
+<div class="field"><label for="rating">Самооценка недели</label><select id="rating" name="rating"><option value="">Не указана</option><option>1 / 5 — сложно</option><option>2 / 5</option><option>3 / 5 — удовлетворительно</option><option>4 / 5 — хорошо</option><option>5 / 5 — отлично</option></select></div>
+<div class="field"><label for="links">Ссылки на материалы и результаты</label><textarea id="links" name="links" placeholder="Ссылки на документы, таблицы, публикации"></textarea></div>
+</div>
+<div class="notice">Поля со звёздочкой обязательны. Не указывайте пароли, платёжные данные и другую конфиденциальную информацию.</div>
+<div class="actions"><button class="primary" type="submit">Сформировать отчёт</button><button class="secondary" type="reset">Очистить форму</button></div>
+</form></section>
+<section id="preview" class="preview">
+<div class="no-print actions" style="margin:0 0 18px"><button class="gold" onclick="window.print()">Скачать PDF / Печать</button><button class="secondary" onclick="editForm()">Вернуться к редактированию</button></div>
+<h2>THE POINT OF SUCCESS</h2><div style="font:16px Georgia,serif;color:#9b7b39;margin-bottom:12px">WEEKLY REPORT</div>
+<div class="meta" id="meta"></div>
+<div id="reportContent"></div>
+<div style="border-top:1px solid #ddd;margin-top:24px;padding-top:9px;font-size:10px;color:#777">The Point of Success · Internal document</div>
+</section>
+</main><footer class="no-print">The Point of Success · Weekly Report Lite</footer>
+<script>
+const fields=[
+ ["Главный итог недели","summary"],["Выполненные задачи","done"],["Незавершённые задачи","pending"],["KPI: план и факт","kpi"],["Трудности и риски","challenges"],["Помощь руководителя","help"],["Идеи и предложения","ideas"],["План на следующую неделю","next"],["Самооценка","rating"],["Ссылки на материалы","links"]
+];
+const esc=s=>String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+document.getElementById("reportForm").addEventListener("submit",e=>{
+ e.preventDefault();const f=e.currentTarget;
+ if(!f.reportValidity())return;
+ const v=id=>document.getElementById(id).value.trim();
+ document.getElementById("meta").innerHTML=
+ `<b>Сотрудник:</b> ${esc(v("name"))} &nbsp;|&nbsp; <b>Должность:</b> ${esc(v("position"))}<br>`+
+ `<b>Отдел:</b> ${esc(v("department"))} &nbsp;|&nbsp; <b>Руководитель:</b> ${esc(v("manager")||"—")}<br>`+
+ `<b>Период:</b> ${esc(v("start"))} — ${esc(v("end"))}<br><b>Сформирован:</b> ${new Date().toLocaleDateString("ru-RU")}`;
+ document.getElementById("reportContent").innerHTML=fields.map(([label,id])=>
+ `<h3>${esc(label)}</h3><p>${esc(v(id)||"Не заполнено")}</p>`).join("");
+ document.getElementById("formPanel").style.display="none";
+ document.getElementById("preview").style.display="block";
+ window.scrollTo({top:0,behavior:"smooth"});
+});
+function editForm(){document.getElementById("preview").style.display="none";document.getElementById("formPanel").style.display="block";window.scrollTo({top:0,behavior:"smooth"})}
+document.getElementById("reportForm").addEventListener("reset",()=>setTimeout(()=>{document.getElementById("preview").style.display="none";document.getElementById("formPanel").style.display="block"},0));
+</script></body></html>
